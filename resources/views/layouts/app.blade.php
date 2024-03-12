@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- item_style.css を読み込む -->
+    <link rel="stylesheet" href="/public/css/item_style.css">
 </head>
 <body>
     <div id="app">

@@ -14,8 +14,15 @@ class Item extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'item_name',
+        'status',
         'type',
         'detail',
+        'in_stock',
+        'appr_inventory',
+        'avr_daily_sales',
+        'delivery_days',
+        'supplier',
     ];
 
     /**
