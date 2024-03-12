@@ -15,8 +15,15 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('name', 100)->index();
+            $table->string('item_name', 100)->index();
+            $table->string('status', 100)->index();
             $table->string('type', 100)->nullable();
             $table->string('detail', 500)->nullable();
+            $table->string('in_stock', 100)->index();
+            $table->string('appr_inventory', 100)->index();
+            $table->string('avr_daily_sales', 100)->index();
+            $table->string('delivery_days', 100)->index();
+            $table->string('supplier', 100)->index();
             $table->timestamps();
         });
     }
