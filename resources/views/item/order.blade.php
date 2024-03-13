@@ -52,6 +52,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <hr>
                     @endforeach
                     <div class="text-left">
                     <a href="{{ route('item.index') }}" class="btn btn-secondary">戻る</a>
