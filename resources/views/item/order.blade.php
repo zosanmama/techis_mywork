@@ -3,7 +3,7 @@
 @section('title', '商品一覧')
 
 @section('content_header')
-    <h1>商品一覧</h1>
+    <h1>簡単発注</h1>
 @stop
 
 @section('content')
@@ -21,75 +21,53 @@
                     </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap table-light">
+                    @foreach ($filteredItems as $supplier => $items)
+                    <h2 class="m-50 pt-50">{{ $supplier }}</h2>
+                    <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center">
-                                        <span style="margin-right: 5px;">商品名</span>
-                                        <a href="{{ route('item.index', ['sort' => 'item_name', 'direction' => 'asc']) }}">
-                                            <img src="../img/arrow-up.svg" width="15">
-                                        </a>
-                                        <a href="{{ route('item.index', ['sort' => 'item_name', 'direction' => 'desc']) }}">
-                                            <img src="../img/arrow-down.svg" width="15">
-                                        </a>
-                                </th>
-                                <th scope="col" class="text-center">
-                                    ステータス
-                                    <a href="{{ route('item.index', ['sort' => 'status', 'direction' => 'asc']) }}">
-                                        <img src="../img/arrow-up.svg" width="15">
-                                    </a>
-                                    <a href="{{ route('item.index', ['sort' => 'status', 'direction' => 'desc']) }}">
-                                        <img src="../img/arrow-down.svg" width="15">
-                                    </a>
-                                </th>
-                                <th scope="col" class="text-center">
-                                    種別
-                                    <a href="{{ route('item.index', ['sort' => 'type', 'direction' => 'asc']) }}">
-                                        <img src="../img/arrow-up.svg" width="15">
-                                    </a>
-                                    <a href="{{ route('item.index', ['sort' => 'type', 'direction' => 'desc']) }}">
-                                        <img src="../img/arrow-down.svg" width="15">
-                                    </a>
-                                </th>
-                                <th scope="col" class="text-center">在庫</th>
-                                <th scope="col" class="text-center">発注目安</th>
-                                <th scope="col" class="text-center">詳細</th>
+                                <th scope="col" class="text-center">番号</th>
+                                <th scope="col" class="text-center">商品名</th>
+                                <th scope="col" class="text-center">発注見込</th>
+                                <th scope="col" class="text-center">単価</th>
+                                <th scope="col" class="text-center">合計額</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                                <tr>
-                                    <td class="text-center"> {{ $item->item_name }}</td>
-                                    <td class="text-center">
-                                        @if($item->status == 'active')有効
-                                        @elseif($item->status == 'inactive')無効
-                                        @else
-                                            {{ $item->status }}
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if ($item->type == 'pencil')鉛筆
-                                        @elseif ($item->type == 'eraser')消しゴム
-                                        @elseif ($item->type == 'ruler')ものさし
-                                        @elseif ($item->type == 'pen')万年筆
-                                        @else
-                                            {{ $item->type }}
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $item->in_stock}}</td>
-                                    <td class="text-center" style="color: {{ $item->order_guide > 0 ? 'red' : 'black' }}; white-space: nowrap;">
-                                        @if($item->order_guide <= 0)不要
-                                        @elseif($item->order_guide > 0)
-                                            {{ $item->order_guide}}
-                                        @else
-                                            要確認
-                                        @endif
-                                    </td>
-                                    <td class="text-center">詳細ボタン</td>
-                                </tr>
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td> <!-- 番号を表示 -->
+                                <td class="text-center">{{ $item->item_name }}</td>
+                                <td class="text-center">
+                                    @if($item->status == 'active')有効
+                                    @elseif($item->status == 'inactive')無効
+                                    @else
+                                        {{ $item->status }}
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    @if ($item->type == 'pencil')鉛筆
+                                    @elseif ($item->type == 'eraser')消しゴム
+                                    @elseif ($item->type == 'ruler')ものさし
+                                    @elseif ($item->type == 'pen')万年筆
+                                    @else
+                                        {{ $item->type }}
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $item->in_stock}}</td>
+                                <td class="text-center" style="color: {{ $item->order_guide > 0 ? 'red' : 'black' }}; white-space: nowrap;">
+                                    @if($item->order_guide <= 0)不要
+                                    @elseif($item->order_guide > 0)
+                                        {{ $item->order_guide}}
+                                    @else
+                                        要確認
+                                    @endif
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    @endforeach
                 </div>
             </div>
         </div>

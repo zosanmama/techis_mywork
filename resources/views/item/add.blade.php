@@ -72,9 +72,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="supplier">発注先</label>
-                            <input type="text" class="form-control" id="supplier" name="supplier" placeholder="発注先">
+                        <div class="form-group row">
+                            <div class="form-group col-6">
+                                <label for="supplier">発注先</label>
+                                <input type="text" class="form-control" id="supplier" name="supplier" placeholder="発注先">
+                            </div>
+                            <div class="form-group col-3">
+                                <label for="purchase_price">仕入価格</label>
+                                <input type="text" class="form-control" id="purchase_price" name="purchase_price" placeholder="仕入価格">
+                            </div>
                         </div>
 
                     </div>

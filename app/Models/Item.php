@@ -23,6 +23,7 @@ class Item extends Model
         'avr_daily_sales',
         'delivery_days',
         'supplier',
+        'purchase_price',
     ];
 
     /**

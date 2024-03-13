@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('status', 100)->index();
             $table->string('type', 100)->nullable();
             $table->string('detail', 500)->nullable();
-            $table->string('in_stock', 100)->index();
-            $table->string('appr_inventory', 100)->index();
-            $table->string('avr_daily_sales', 100)->index();
-            $table->string('delivery_days', 100)->index();
+            $table->integer('in_stock')->index();
+            $table->integer('appr_inventory')->index();
+            $table->integer('avr_daily_sales')->index();
+            $table->integer('delivery_days')->index();
             $table->string('supplier', 100)->index();
+            $table->integer('purchase_price')->unsigned();
             $table->timestamps();
         });
     }

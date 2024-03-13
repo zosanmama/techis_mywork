@@ -48,8 +48,12 @@ class ItemController extends Controller
             $order_guide = $item->appr_inventory - ($item->in_stock + $item->avr_daily_sales * $item->delivery_days);
             $item->order_guide = $order_guide;
         }
-    
-        return view('item.order', compact('items'));
+        // order_guideが0より大きいデータをフィルタリングし、supplierでグループ化
+        $filteredItems = $items->filter(function ($item) {
+            return $item->order_guide > 0;
+        })->groupBy('supplier');
+
+        return view('item.order', compact('filteredItems'));
     }
     
 
@@ -77,7 +81,8 @@ class ItemController extends Controller
                 'appr_inventory' => $request->appr_inventory,
                 'avr_daily_sales' => $request->avr_daily_sales,
                 'delivery_days' => $request->delivery_days,
-                'supplier' => $request->supplier
+                'supplier' => $request->supplier,
+                'purchase_price' => $request->purchase_price,
             ]);
 
             return redirect('/items');
