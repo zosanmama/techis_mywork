@@ -25,4 +25,5 @@ Route::prefix('items')->group(function () {
     Route::get('/', [App\Http\Controllers\ItemController::class, 'index'])->name('item.index');
     Route::get('/add', [App\Http\Controllers\ItemController::class, 'add'])->name('item.add');
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
+    Route::get('/order', [App\Http\Controllers\ItemController::class, 'order'])->name('item.order');
 });

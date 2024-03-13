@@ -11,18 +11,17 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">商品一覧</h3>
+                    <h3 class="card-title">簡単発注</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ route('item.order') }}" class="btn btn-success">簡単発注</a>
                                 <a href="{{ url('items/add') }}" class="btn btn-dark">商品登録</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap table-striped">
+                    <table class="table table-hover text-nowrap table-light">
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center">
