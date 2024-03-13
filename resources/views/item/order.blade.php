@@ -10,20 +10,12 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">簡単発注</h3>
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm">
-                            <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="btn btn-dark">商品登録</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-30">
                     @foreach ($filteredItems as $supplier => $items)
-                    <h2 class="m-50 pt-50">{{ $supplier }}</h2>
-                    <table class="table table-hover text-nowrap">
+                    <p>仕入先
+                    <h3 class="m-50 pt-50">{{ $supplier }}</h2>
+                    </p>
+                    <table class="table text-nowrap">
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center">番号</th>
@@ -34,40 +26,36 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $total = 0;
+                             @endphp
                             @foreach ($items as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td> <!-- 番号を表示 -->
                                 <td class="text-center">{{ $item->item_name }}</td>
-                                <td class="text-center">
-                                    @if($item->status == 'active')有効
-                                    @elseif($item->status == 'inactive')無効
-                                    @else
-                                        {{ $item->status }}
-                                    @endif
-                                </td>
-                                <td class="text-center">
-                                    @if ($item->type == 'pencil')鉛筆
-                                    @elseif ($item->type == 'eraser')消しゴム
-                                    @elseif ($item->type == 'ruler')ものさし
-                                    @elseif ($item->type == 'pen')万年筆
-                                    @else
-                                        {{ $item->type }}
-                                    @endif
-                                </td>
-                                <td class="text-center">{{ $item->in_stock}}</td>
-                                <td class="text-center" style="color: {{ $item->order_guide > 0 ? 'red' : 'black' }}; white-space: nowrap;">
-                                    @if($item->order_guide <= 0)不要
-                                    @elseif($item->order_guide > 0)
-                                        {{ $item->order_guide}}
-                                    @else
-                                        要確認
-                                    @endif
+                                <td class="text-center"> {{ number_format($item->order_guide)}} </td>
+                                <td class="text-center"> {{ number_format($item->purchase_price)}}</td>
+                                <td class="text-center"> {{ number_format($item->order_guide * $item->purchase_price) }} </td>
+                            </tr>
+                            @php
+                                 $total += $item->order_guide * $item->purchase_price;
+                             @endphp
+                            @endforeach
+                            <tr>
+                                <td colspan="4" class="text-right">合計：</td>
+                                <td class="text-center">{{ number_format($total) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="5">
+                                    <a href="#" class="btn btn-danger">この内容で発注</a>
                                 </td>
                             </tr>
-                            @endforeach
                         </tbody>
                     </table>
                     @endforeach
+                    <div class="text-left">
+                    <a href="{{ route('item.index') }}" class="btn btn-secondary">戻る</a>
+                    </div>
                 </div>
             </div>
         </div>
