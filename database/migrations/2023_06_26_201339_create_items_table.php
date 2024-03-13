@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('name', 100)->index();
             $table->string('item_name', 100)->index();
-            $table->string('status', 100)->index();
+            $table->string('status', 100)->default('active');
             $table->string('type', 100)->nullable();
             $table->string('detail', 500)->nullable();
             $table->integer('in_stock')->index();
