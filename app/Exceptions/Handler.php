@@ -28,3 +28,13 @@ class Handler extends ExceptionHandler
         });
     }
 }
+
+public function render($request, Exception $exception)
+ {
+    // TokenMismatchException発生時
+    if ($exception instanceof TokenMismatchException) {
+        // TokenMismatchException発生時はindexへリダイレクトさせる
+        return redirect('/index');
+    }
+    return parent::render($request, $exception);
+}
