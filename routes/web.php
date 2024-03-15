@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('items')->group(function () {
-    Route::get('/', [App\Http\Controllers\ItemController::class, 'index'])->name('item.index');
+    Route::get('/index', [App\Http\Controllers\ItemController::class, 'index'])->name('item.index');
     Route::get('/add', [App\Http\Controllers\ItemController::class, 'add'])->name('item.add');
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
     Route::get('/order', [App\Http\Controllers\ItemController::class, 'order'])->name('item.order');
