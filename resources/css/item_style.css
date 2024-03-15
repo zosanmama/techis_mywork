@@ -1,3 +1,8 @@
 .radio-button-container input[type="radio"] {
     margin-right: 20px; /* ボタン間の水平間隔 */
 }
+
+.rounded-table {
+    border-radius: 10px;
+    overflow: hidden;
+}

@@ -22,7 +22,7 @@
 
 <p>発注履歴</p>
    <div class="col-12">
-    <table class="table table-dark">
+    <table class="table table-dark rounded-table">
         <thead>   
             <tr>
             <th class="text-center">日付</th>
