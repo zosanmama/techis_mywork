@@ -79,7 +79,9 @@
                                             要確認
                                         @endif
                                     </td>
-                                    <td class="text-center">詳細ボタン</td>
+                                    <td class="text-center">
+                                        <a href="{{ route('item.index') }}" class="btn btn-secondary btn-sm">詳細</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
