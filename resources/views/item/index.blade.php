@@ -71,12 +71,12 @@
                                         @endif
                                     </td>
                                     <td class="text-center">{{ $item->in_stock}}</td>
-                                    <td class="text-center" style="color: {{ $item->order_guide > 0 ? 'red' : 'black' }}; white-space: nowrap;">
-                                        @if($item->order_guide <= 0)不要
-                                        @elseif($item->order_guide > 0)
-                                            {{ $item->order_guide}}
+                                    <td class="text-center" style="color: {{ $item->order_guide < 0 ? 'red' : 'black' }}; white-space: nowrap;">
+                                        @if($item->order_guide > 0)不要
+                                        @elseif($item->order_guide < 0)
+                                        {{ abs($item->order_guide) }}
                                         @else
-                                            要確認
+                                            0
                                         @endif
                                     </td>
                                     <td class="text-center">

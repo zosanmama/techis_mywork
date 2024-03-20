@@ -45,7 +45,7 @@ class ItemController extends Controller
 
         // 商品ごとに計算式を適用して新しい項目を追加
         foreach ($items as $item) {
-            $order_guide = $item->appr_inventory - ($item->in_stock - $item->avr_daily_sales * $item->delivery_days);
+            $order_guide =($item->appr_inventory - $item->in_stock) + ($item->avr_daily_sales * $item->delivery_days);
             $item->order_guide = $order_guide;
         }
         // order_guideが0より大きいデータをフィルタリングし、supplierでグループ化
