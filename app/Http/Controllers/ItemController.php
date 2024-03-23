@@ -129,4 +129,49 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+
+    public function show(Item $item)
+    {
+        return view('item.details', compact('item'));
+    }
+
+    public function edit(Item $item)
+    {
+        return view('item.edit', compact('item'));
+    }
+
+    public function update(Request $request, Item $item)
+    {
+        // バリデーション
+        $rules = [
+            'item_name' => 'required|max:30',
+            'detail' => 'required|max:100',
+            'in_stock' => 'required|numeric|gt:0|digits_between:1,5',
+            'appr_inventory' => 'required|numeric|gt:0|digits_between:1,5',
+            'avr_daily_sales' => 'required|numeric|gt:0|digits_between:1,5',
+            'delivery_days' => 'required|numeric|gt:0|digits_between:1,4',
+            'supplier' => 'required|max:100',
+            'purchase_price' => 'required|numeric|gt:0|digits_between:1,7',
+        ];
+
+        // バリデーションを実行
+        $validatedData = $request->validate($rules);
+
+        // フォームから送信されたデータを使用して商品情報を更新
+        $item->update($validatedData);
+
+        // 更新が完了したら、適切なリダイレクト先にリダイレクトする
+        return redirect()->route('item.show', $item->id)->with('success', '商品情報が更新されました');
+    }
+
+    public function destroy(Item $item)
+    {
+            // 削除する商品の名前を取得
+        $itemName = $item->item_name;
+
+        $item->delete();
+
+        // 削除が完了したら、適切なリダイレクト先にリダイレクトする
+        return redirect()->route('item.index')->with('success', "商品名 $itemName を削除しました");
+    }
 }

@@ -14,6 +14,11 @@
                 <a href="{{ route('item.order') }}" class="btn mr-2 btn-success">簡単発注</a>
                 <a href="{{ url('items/add') }}" class="btn btn-dark">商品登録</a>
             </div>
+            @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap table-striped">
                         <thead>
@@ -80,7 +85,7 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('item.index') }}" class="btn btn-secondary btn-sm">詳細</a>
+                                        <a href="{{ route('item.show', $item->id) }} class="btn btn-secondary btn-sm"">詳細</a>
                                     </td>
                                 </tr>
                             @endforeach
