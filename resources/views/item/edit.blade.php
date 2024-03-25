@@ -16,9 +16,17 @@
                 <form method="POST">
                     @csrf
                     <div class="card-body">
+                     <div class="form-group">
+                            <label for="brand">ブランド名</label>
+                            <input type="text" class="form-control" id="brand" name="brand" value = "{{ $item-> brand_id }}" placeholder="ブランド名">
+                        </div>
                         <div class="form-group">
                             <label for="item_name">商品名</label>
                             <input type="text" class="form-control" id="item_name" name="item_name" value="{{ $item->item_name }}" placeholder="商品名">
+                        </div>
+                        <div class="form-group">
+                            <label for="item_image">商品画像</label>
+                            <input type="file" class="form-control-file" id="item_image" name="item_image" value="{{ $item->item_image }}"  >
                         </div>
                         <div class="form-group radio-button-container">
                             <label>ステータス</label><br>
@@ -38,9 +46,31 @@
                             <input type="radio" id="pen" name="type" value="pen" {{ $item->type === "pen" ? "checked" : "" }}>
                             <label for="pen" class="mr-3">万年筆</label>
                         </div>
+
+                        <div class="form-group">
+                            <label for="item_color_id">商品色</label>
+                            <input type="text" class="form-control" id="item_color_id" name="item_color_id" value="{{ $item->item_color_id }}" placeholder="商品色">
+                        </div>
+                        <div class="form-group">
+                            <label for="item_size_id">商品サイズ</label>
+                            <input type="text" class="form-control" id="item_size_id" name="item_size_id" value="{{ $item->item_size_id }}" placeholder="商品サイズ">
+                        </div>
+                        <div class="form-group">
+                            <label for="item_material_id">商品素材</label>
+                            <input type="text" class="form-control" id="item_material_id" name="item_material_id" value="{{ $item->item_material_id }}" placeholder="商品素材">
+                        </div>
+
                         <div class="form-group">
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" value="{{ $item->detail }}" placeholder="詳細説明">
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">販売単位</label>
+                            <input type="text" class="form-control" id="unit" name="unit" value="{{ $item->unit }}"　placeholder="販売単位">
+                        </div>
+                        <div class="form-group">
+                            <label for="sell_price">販売価格</label>
+                            <input type="text" class="form-control" id="sell_price" name="sell_price" value="{{ $item-> sell_price }}" placeholder="販売価格">
                         </div>
                         <div class="form-group row">
                             <div class="form-group col-3">

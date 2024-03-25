@@ -111,16 +111,22 @@ class ItemController extends Controller
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
-                'name' => Auth::user()->name,
+                'brand_id' => $request->brand_id,
                 'item_name' => $request->item_name,
+                'item_image' => $request->item_image,
                 'status' => $request->status,
-                'type' => $request->type,
+                'type_id' => $request->type_id,
+                'item_color_id' => $request->item_color_id,
+                'item_size_id' => $request->item_size_id,
+                'item_material_id' => $request->item_material_id,
                 'detail' => $request->detail,
+                'unit' => $request->unit,
+                'sell_price' => $request->sell_price,
                 'in_stock' => $request->in_stock,
                 'appr_inventory' => $request->appr_inventory,
                 'avr_daily_sales' => $request->avr_daily_sales,
                 'delivery_days' => $request->delivery_days,
-                'supplier' => $request->supplier,
+                'supplier_id' => $request->supplier_id,
                 'purchase_price' => $request->purchase_price,
             ]);
 
