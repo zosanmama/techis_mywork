@@ -31,6 +31,7 @@ return new class extends Migration
             $table->integer('delivery_days')->index();
             $table->string('supplier_id', 100)->index();
             $table->integer('purchase_price')->unsigned();
+            $table->string('note', 255)->default("メモ");
             $table->timestamps();
         });
     }

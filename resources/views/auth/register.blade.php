@@ -11,18 +11,30 @@
                     <form method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('氏名') }}</label>
-
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('姓') }}</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                                @error('name')
+                                @error('surname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="givenname" class="col-md-4 col-form-label text-md-end">{{ __('名') }}</label>
+                            <div class="col-md-6">
+                                <input id="givenname" type="text" class="form-control @error('givenname') is-invalid @enderror" name="givenname" value="{{ old('givenname') }}" required autocomplete="givenname" autofocus>
+
+                                @error('givenname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('メールアドレス') }}</label>

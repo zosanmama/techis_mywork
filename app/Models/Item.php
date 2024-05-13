@@ -30,6 +30,7 @@ class Item extends Model
         'delivery_days',
         'supplier_id',
         'purchase_price',
+        'note',
     ];
 
     /**

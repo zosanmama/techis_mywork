@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <td class="text-right" colspan="5">
-                                    <a href="#" class="btn btn-danger">この内容で発注</a>
+                                    <a href="#" class="btn btn-danger">内容確認</a>
                                 </td>
                             </tr>
                         </tbody>

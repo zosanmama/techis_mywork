@@ -37,7 +37,13 @@ class AppServiceProvider extends ServiceProvider
                 'purchase_price' => '仕入価格',
             ];
         
-            return str_replace(':attribute', $attributes[$attribute], $attributes[$attribute] . 'を入力してください。');
+            // $attributeに一致する属性名が$attributes内に存在するかチェック
+            if (array_key_exists($attribute, $attributes)) {
+                return str_replace(':name', $attributes[$attribute], $message);
+            }
+        
+            // 属性名が見つからない場合は、元のメッセージを返す
+            return $message;
         });
         
         Validator::replacer('max', function ($message, $attribute, $rule, $parameters) {
