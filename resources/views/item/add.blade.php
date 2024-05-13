@@ -24,8 +24,8 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="brand">ブランド名</label>
-                            <input type="text" class="form-control" id="brand" name="brand" placeholder="ブランド名">
+                            <label for="brand_id">ブランド</label>
+                            <input type="text" class="form-control" id="brand_id" name="brand_id" placeholder="ブランド">
                         </div>
                         <div class="form-group">
                             <label for="item_name">商品名</label>
@@ -99,14 +99,22 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="form-group col-6">
-                                <label for="supplier_id">発注先</label>
-                                <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="発注先">
+                            <div class="form-group col-3">
+                                <label for="supplier_id">発注先ID</label>
+                                <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="発注先ID">
+                            </div>
+                            <div class="form-group col-3">
+                                <label for="supplier">発注先</label>
+                                <input type="text" class="form-control" id="supplier" name="supplier" placeholder="発注先">
                             </div>
                             <div class="form-group col-3">
                                 <label for="purchase_price">仕入価格</label>
                                 <input type="text" class="form-control" id="purchase_price" name="purchase_price" placeholder="仕入価格">
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sell_price">メモ</label>
+                            <input type="text" class="form-control" id="note" name="note" placeholder="メモ">
                         </div>
 
                     </div>

@@ -12,3 +12,7 @@
     border: 1px solid #dee2e6; /* テーブルのボーダーを明示的に指定 */
     border-radius: 10px; /* セルの角を丸くする */
 }
+
+.sidebar-menu .treeview-menu > li > a {
+    padding-left: 15px; /* アイコンの余白を削除 */
+}

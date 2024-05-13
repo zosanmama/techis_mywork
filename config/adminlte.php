@@ -293,12 +293,12 @@ return [
         [
             'text' => '商品管理',
             'url'  => 'items',
-            'icon' => null,
+            'icon' => 'img/pencil-solid.png',
         ],
         [
             'text' => '簡単発注',
-            'url'  => 'item.order',
-            'icon' => null,
+            'url'  => '',
+            'icon' => 'img/pencil-solid.png',
         ],
 
         // AdminLTEデフォルト

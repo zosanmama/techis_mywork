@@ -128,6 +128,7 @@ class ItemController extends Controller
                 'delivery_days' => $request->delivery_days,
                 'supplier_id' => $request->supplier_id,
                 'purchase_price' => $request->purchase_price,
+                'note' => $request->note,
             ]);
 
             return redirect('/items');
