@@ -293,7 +293,7 @@ return [
         [
             'text' => '商品管理',
             'url'  => 'items',
-            'icon' => 'fas rectanble-list',
+            'icon' => 'rectanble-list',
         ],
         [
             'text' => '簡単発注',
