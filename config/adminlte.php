@@ -293,12 +293,10 @@ return [
         [
             'text' => '商品管理',
             'url'  => 'items',
-            'icon' => 'rectanble-list',
         ],
         [
             'text' => '簡単発注',
             'url'  => 'order',
-            'icon' => 'fas fa-gamepad',
         ],
 
         // AdminLTEデフォルト
