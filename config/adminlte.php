@@ -293,10 +293,12 @@ return [
         [
             'text' => '商品管理',
             'url'  => 'items',
+            'icon' => null,
         ],
         [
             'text' => '簡単発注',
-            'url'  => 'order',
+            'url'  => 'item.order',
+            'icon' => null,
         ],
 
         // AdminLTEデフォルト
