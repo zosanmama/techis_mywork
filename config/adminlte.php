@@ -297,7 +297,7 @@ return [
         ],
         [
             'text' => '簡単発注',
-            'url'  => '',
+            'url'  => 'order',
             'icon' => 'img/pencil-solid.png',
         ],
 
